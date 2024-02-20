@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: lnebilos
+  namespace: mathieu-argo
+spec:
+  description: demo app as code
+  destinations:
+  - name: in-cluster
+    namespace: lnebilos
+    server: https://kubernetes.default.svc
+  sourceRepos:
+  - https://github.com/Lnebilos/demo-argo-app-nl.git
+status: {}

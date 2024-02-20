@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: lnebilos-app
+  namespace: mathieu-argo
+spec:
+  destination:
+    namespace: lnebilos
+    server: https://kubernetes.default.svc
+  project: lnebilos
+  source:
+    helm:
+      valueFiles:
+      - values.yaml
+    path: my-api
+    repoURL: https://github.com/Lnebilos/demo-argo-app-nl.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
